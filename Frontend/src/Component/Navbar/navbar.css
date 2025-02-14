@@ -1,0 +1,50 @@
+/* Navbar.css */
+.uk{
+  width: 100vw;
+  margin-top: 0px;
+}
+.navbarnavbar-expand-lg bg-primary{
+background-color: green;
+}
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .navbar-logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
+  
+  .navbar-links li {
+    display: inline;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+  
+  .navbar-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+  }
+  
