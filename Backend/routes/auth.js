@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
         const savedDb = await newUser.save()
         res.json({ success: "Sucessfully data saved", savedDb })  
     } catch (err) {
-        return res.send("Data not saved")
+        return res.send("Data not saved",err)
     }
 })
 

@@ -92,26 +92,8 @@ export const AuthContextProvider = ({ children }) => {
 };
 
 export default AuthContext;
-// export { AuthContext };
-
-
-// try {
-        //     const res = await fetch(`http://localhost:3000/api/me`, {
-        //         method: "GET",
-        //         headers: {
-        //             Authorization : `Bearer ${localStorage.getItem("token")} `
-        //         }
-        //     })
-        //     const result = await res.json()
-        //     if (!result.error) {
-        //         setUser(result)
-        //         navigate("/", { replace: true });
-        //     }
-        // }
 
 
 
 
-        
-    
         
