@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/authContext";
 
 function Home() {
@@ -14,9 +14,9 @@ function Home() {
       <div className="jumbotron">
         <h1>Welcome {user ? user.name : null}</h1>
         <hr className="my-4" />
-        <a className="btn btn-info" href="#" role="button">
+        <Link className="btn btn-info" to="/create">
           Add Contacts
-        </a>
+        </Link>
       </div>
   );
 }

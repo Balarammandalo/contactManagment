@@ -10,6 +10,7 @@ function EditContact() {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const url = import.meta.env.VITE_SERVER_URL
   const [userDetails, setUserDetails] = useState({
     name: "",
     address: "",
@@ -20,7 +21,7 @@ function EditContact() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const res = await fetch(`http://localhost:3000/api/contactname`, {
+    const res = await fetch(`${url}/contactname`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +47,7 @@ function EditContact() {
   useEffect(() => {
     setLoading(true);
     const editData = async () => {
-      const result = await fetch(`http://localhost:3000/api/contact/${id}`, {
+      const result = await fetch(`${url}/contact/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -8,8 +8,6 @@ function Login() {
   const { loginUser } = useContext(AuthContext)
   const {toast} = useContext(ToastContext)
   
-  console.log(loginUser)
-  
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",

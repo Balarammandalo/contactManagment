@@ -11,13 +11,14 @@ function AllContact() {
   const [modalData, setModalData] = useState({});
   const [showModal, setShowModal] = useState(false);
   const { toast } = useContext(ToastContext);
+  const url = import.meta.env.VITE_SERVER_URL
 
   useEffect(() => {
     setLoading(true);
     const fetchContact = async () => {
       try {
         const result = await axios.get(
-          "http://localhost:3000/api/contactname",
+          `${url}/contactname`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -37,7 +38,7 @@ function AllContact() {
   const deleteContact = async (id) => {
     if (window.confirm("Are you sure you want to delete this contact?")) {
       try {
-        const result = await fetch(`http://localhost:3000/api/delete/${id}`, {
+        const result = await fetch(`${url}/delete/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -142,10 +143,3 @@ function AllContact() {
 }
 
 export default AllContact;
-
-{
-  /* <Link className="btn btn-info" to={`/edit/${modalData._id}`}>
-            Edit
-          </Link>
-           */
-}

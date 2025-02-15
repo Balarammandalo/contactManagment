@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function CreateContact() {
   const { toast } = useContext(ToastContext)
   const navigate = useNavigate()
+  const url = import.meta.env.VITE_SERVER_URL
 
     const [userDetails, setUserDetails] = useState({
         name: "",
@@ -15,7 +16,7 @@ function CreateContact() {
 
     const handleSubmit =async (event) => {
         event.preventDefault()
-        const res = await fetch(`http://localhost:3000/api/contact`,{
+        const res = await fetch(`${url}/contact`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -8,6 +8,7 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
+    const url = import.meta.env.VITE_SERVER_URL
 
     useEffect(() => {
         checkUserLoggedIn()   
@@ -18,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("No token found");
     
-            const result = await axios.get("http://localhost:3000/api/me", {
+            const result = await axios.get(`${url}/me`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (!result.error) {
@@ -37,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
     //user login
     const loginUser = async (userData) => {
       try {
-        const res = await fetch(`http://localhost:3000/api/login`, {
+        const res = await fetch(`${url}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -63,7 +64,7 @@ export const AuthContextProvider = ({ children }) => {
     //user register
     const registerUser = async (userData) => {
         try {
-            const res = await fetch(`http://localhost:3000/api/register`, {
+            const res = await fetch(`${url}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
